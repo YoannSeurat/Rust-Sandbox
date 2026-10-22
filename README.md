@@ -1,15 +1,15 @@
 ####  A place where I simply test out my newly acquired skills in Rust.
 
 Right now the projects you can find here are :
-- Ball Bounce
-- Diamond
-- FooBarQix
-- Game of Life
-- Guessing Game
-- Leap Years
-- Manhattan Distance
-- Mastermind
-- Number to LCD
+- [Ball Bounce](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/ball-bounce)
+- [Diamond](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/diamond)
+- [FooBarQix](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/foobarqix)
+- [Game of Life](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/game-of-life)
+- [Guessing Game](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/guessing-game)
+- [Leap Years](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/leap-years)
+- [Manhattan Distance](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/manhattan-distance)
+- [Mastermind](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/mastermind)
+- [Number to LCD](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/number-to-lcd)
 
 Click on any folder to see the corresponding README
 
