@@ -8,6 +8,7 @@ Right now the projects you can find here are :
 - Guessing Game
 - Leap Years
 - Manhattan Distance
+- Mastermind
 - Number to LCD
 
 Click on any folder to see the corresponding README
