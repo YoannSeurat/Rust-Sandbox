@@ -2,6 +2,7 @@
 
 Right now the projects you can find here are :
 - [Ball Bounce](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/ball-bounce)
+- [Brainfuck](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/brainfuck)
 - [Diamond](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/diamond)
 - [FooBarQix](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/foobarqix)
 - [Game of Life](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/game-of-life)
