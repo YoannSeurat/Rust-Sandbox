@@ -124,7 +124,6 @@ fn main() {
         curr_index += 1
     }
 
-    println!("\n\n");
     for data in memory {
         print!("{data} ");
     }
