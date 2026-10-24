@@ -18,10 +18,10 @@ a movable data pointer (initialized to point to the leftmost byte of the array).
 The program is composed of 8 different commands :
 
 Character	Meaning
-+	Increment the byte at the data pointer.
--	Decrement the byte at the data pointer.
++	Increment the byte at the data pointer by one modulo 256.
+-	Decrement the byte at the data pointer by one modulo 256.
 >	Increment the data pointer.
-<	Decrement the data pointer.
+<	Decrement the data pointer, go to the end if pointer is at zero.
 .	Output the byte at the data pointer (ASCII format)
 ,	Accept one byte of input (ASCII format), storing its value in the byte at the data pointer.
 [	If the byte at the data pointer is zero jump it forward to the command after the matching ] command.
@@ -33,6 +33,55 @@ Implement . , to manage I/O.
 Implement [ ] to manage jump/loops.
 */
 
+mod file;
+mod userinput;
+
 fn main() {
+    let filenumber = userinput::userinput();
+    let program = file::read_file(filenumber);
+
+    // println!("{program}");
     
+    let mut memory: Vec<u32> = Vec::new();
+    memory.push(0);
+    let mut curr_cell: usize = 0;
+
+    for char in program.chars() {
+        // println!("{char}");
+
+        if char == '+' {
+            
+            memory[curr_cell] += 1;
+            if memory[curr_cell] == 256 {
+                memory[curr_cell] = 0;
+            }
+
+        } else if char == '-' {
+
+            if memory[curr_cell] == 0 {
+                memory[curr_cell] = 256;
+            }
+            memory[curr_cell] -= 1;
+
+        } else if char == '>' {
+
+            curr_cell += 1;
+            if memory.len() == curr_cell {
+                memory.push(0);
+            }
+
+        } else if char == '<' {
+
+            if curr_cell != 0 {
+                curr_cell -= 1;
+            }
+
+        }
+    }
+
+    for data in memory {
+        print!("{data} ");
+    }
+    println!();
+
 }
