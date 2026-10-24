@@ -37,51 +37,96 @@ mod file;
 mod userinput;
 
 fn main() {
-    let filenumber = userinput::userinput();
+    let filenumber = userinput::userinput_filenumber();
+    println!();
     let program = file::read_file(filenumber);
 
     // println!("{program}");
     
-    let mut memory: Vec<u32> = Vec::new();
+    let mut memory: Vec<u8> = Vec::new();
     memory.push(0);
     let mut curr_cell: usize = 0;
 
-    for char in program.chars() {
+    let program_chars: Vec<char> = program.chars().collect();
+    let mut curr_index = 0;
+
+    while curr_index < program.len() {
         // println!("{char}");
 
-        if char == '+' {
+        if program_chars[curr_index] == '+' {
             
-            memory[curr_cell] += 1;
-            if memory[curr_cell] == 256 {
+            if memory[curr_cell] == 255 {
                 memory[curr_cell] = 0;
+            } else {
+                memory[curr_cell] += 1;
             }
 
-        } else if char == '-' {
+        } else if program_chars[curr_index] == '-' {
 
             if memory[curr_cell] == 0 {
-                memory[curr_cell] = 256;
+                memory[curr_cell] = 255;
+            } else {
+                memory[curr_cell] -= 1;
             }
-            memory[curr_cell] -= 1;
 
-        } else if char == '>' {
+        } else if program_chars[curr_index] == '>' {
 
             curr_cell += 1;
             if memory.len() == curr_cell {
                 memory.push(0);
             }
 
-        } else if char == '<' {
+        } else if program_chars[curr_index] == '<' {
 
             if curr_cell != 0 {
                 curr_cell -= 1;
             }
 
+        } else if program_chars[curr_index] == '.' {
+
+            print!("{}", memory[curr_cell] as char);
+
+        } else if program_chars[curr_index] == ',' {
+
+            println!();
+            memory[curr_cell] = userinput::userinput();
+
+        } else if program_chars[curr_index] == '[' {
+
+            if memory[curr_cell] == 0 {
+                let mut matching_bracket_tracker: u32 = 1;
+                while matching_bracket_tracker > 0 {
+                    curr_index += 1;
+                    if program_chars[curr_index] == '[' {
+                        matching_bracket_tracker += 1;
+                    } else if program_chars[curr_index] == ']' {
+                        matching_bracket_tracker -= 1;
+                    }
+                }
+            }
+            
+        } else if program_chars[curr_index] == ']' {
+
+            if memory[curr_cell] != 0 {
+                let mut matching_bracket_tracker = -1;
+                while matching_bracket_tracker < 0 {
+                    curr_index -= 1;
+                    if program_chars[curr_index] == '[' {
+                        matching_bracket_tracker += 1;
+                    } else if program_chars[curr_index] == ']' {
+                        matching_bracket_tracker -= 1;
+                    }
+                }
+            }
+            
         }
+
+        curr_index += 1
     }
 
+    println!("\n\n");
     for data in memory {
         print!("{data} ");
     }
-    println!();
 
 }
