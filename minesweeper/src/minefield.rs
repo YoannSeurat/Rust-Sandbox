@@ -1,9 +1,16 @@
 use rand::Rng;
 
-pub fn generate_empty_field(length: i32) -> Vec<Vec<i32>> {
+/*
+a cell value of -1 means user hasnt discovered it yet
+a value of 0 means there really are 0 mines around
+
+this system is used to differentiate them in pretty print ('.' or ' ')
+and to propagate the revealing of cells (see `fn reveal_cell` in `main.rs`)
+*/
+pub fn generate_empty_field(length: i32, value: i32) -> Vec<Vec<i32>> {
     let mut field: Vec<Vec<i32>>  = Vec::new();
     for _ in 0..length {
-        field.push(vec![0; length as usize]);
+        field.push(vec![value; length as usize]);
     }
     return field;
 }
@@ -28,7 +35,7 @@ pub fn generate_field(length: i32) -> Vec<Vec<i32>> {
     const MINE_DENSITY: f32 = 0.15;
     let mut mines_number:i32 = (MINE_DENSITY * (length*length) as f32).round() as i32;
 
-    let mut field: Vec<Vec<i32>> = generate_empty_field(length);
+    let mut field: Vec<Vec<i32>> = generate_empty_field(length, 0);
 
     while mines_number != 0 {
         let x = rng.gen_range(0..length as usize);
@@ -52,13 +59,24 @@ pub fn generate_field(length: i32) -> Vec<Vec<i32>> {
     return field;
 }
 
-pub fn pretty_print_field(field:Vec<Vec<i32>>, length: i32) {
+pub fn pretty_print_field(field:&Vec<Vec<i32>>, length: i32) {
+    print!("     ");
+    for n in 0..length {print!("{} ", n);}
+    println!("\n     {}", "—".repeat((2*length-1) as usize));
+    
     for i in 0..length as usize {
+        if i >= 10 {print!("{} | ", i);}
+        else {print!("{}  | ", i);}
+
         for j in 0..length as usize {
             if field[i][j] == 9 {
                 print!("* ");
             } else if field[i][j] == 0 {
+                print!("  ");
+            } else if field[i][j] == -1 { // undiscovered
                 print!(". ");
+            } else if field[i][j] == 99 { // flag
+                print!("x ");
             } else {       
                 print!("{} ", field[i][j]);
             }
