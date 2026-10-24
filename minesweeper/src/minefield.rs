@@ -30,7 +30,7 @@ for example :
     [1, 2, 1]
 ]
 */
-pub fn generate_field(length: i32) -> Vec<Vec<i32>> {
+pub fn generate_field(length: i32, user_x: usize, user_y: usize) -> Vec<Vec<i32>> {
     let mut rng = rand::thread_rng();
     const MINE_DENSITY: f32 = 0.15;
     let mut mines_number:i32 = (MINE_DENSITY * (length*length) as f32).round() as i32;
@@ -41,7 +41,9 @@ pub fn generate_field(length: i32) -> Vec<Vec<i32>> {
         let x = rng.gen_range(0..length as usize);
         let y = rng.gen_range(0..length as usize);
 
-        if field[x][y] != 9 {
+        // if current cell isnt the users first input
+        // and if it doesnt already contain a mine 
+        if (x != user_x && y != user_y) && field[x][y] != 9 {
             field[x][y] = 9;
             
             for dx in (if x > 0 {-1 as i32} else {0})..=(if x < (length-1) as usize {1} else {0}) {

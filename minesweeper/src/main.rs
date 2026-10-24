@@ -29,12 +29,18 @@ fn main() {
     let length= userinput::userinput_sidelength();
 
     let mut field = minefield::generate_empty_field(length, -1);
-    let full_field = minefield::generate_field(length);
+    minefield::pretty_print_field(&field, length);
+    
+    println!("Coordinate input should be formatted as 'row n° [space] column n°'. Add 'F' if you want to flag the cell");
+    let mut coords = userinput::userinput_coordinates(length);
+    let full_field = minefield::generate_field(length, coords[0], coords[1]);
+    reveal_cell(&mut field, &full_field, length, coords[0] as i32, coords[1] as i32);
+    
     minefield::pretty_print_field(&field, length);
     // minefield::pretty_print_field(full_field, length);
 
     loop {
-        let coords = userinput::userinput_coordinates(length);
+        coords = userinput::userinput_coordinates(length);
         if coords.len() == 3 {
             field[coords[0] as usize][coords[1] as usize] = 99; // flag
         } else {
@@ -44,7 +50,8 @@ fn main() {
         minefield::pretty_print_field(&mut field, length);
 
         if field[coords[0]][coords[1]] == 9 {
-            println!("BOOM ! You died... Better luck next time !");
+            println!("\n\nBOOM ! You died... Better luck next time !\nHere is what the field looked like :");
+            minefield::pretty_print_field(&full_field, length);
             return;
         } if check_win(&field, &full_field, length) {
             println!("You did it ! All mines were succesfully flagged :D");

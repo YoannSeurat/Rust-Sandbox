@@ -1,7 +1,7 @@
 pub fn userinput_sidelength() -> i32 {
     let mut result;
     loop {
-        println!("Enter a side length for the mine field (min. 2, max. 30) :");
+        println!("Enter a side length for the mine field :");
         let mut buffer = String::new();
         std::io::stdin().read_line(&mut buffer).expect("Failed to get input");
         result = buffer.trim().parse::<i32>();
@@ -20,7 +20,7 @@ pub fn userinput_sidelength() -> i32 {
 
 pub fn userinput_coordinates(length: i32) -> Vec<usize> {
     loop {
-        println!("Enter a set of coordinates formatted as 'row n° [space] column n°' (add 'F' if you want to flag the cell) :");
+        println!("Enter a set of coordinates :");
         let mut buffer = String::new();
         std::io::stdin().read_line(&mut buffer).expect("Failed to get input");
         buffer = buffer.trim().to_string();
