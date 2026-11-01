@@ -11,8 +11,6 @@ Here's a step-by-step explanation of how merge sort works:
 - Merge: The sorted subarrays are merged back together in sorted order. The process continues until all elements from both subarrays have been merged.
 */
 
-use crate::mergesort::merge;
-
 mod mergesort;
 
 fn main() {
@@ -24,44 +22,44 @@ fn main() {
     let mut array6: Vec<i32> = vec![100, 10, 10, 8, 10000, 4, 1, -1, -50, 100, 4, -1, -1]; // duplicates
 
     let size = array1.len();
-    mergesort::mergesort(&mut array1, 0, size);
+    mergesort::mergesort(&mut array1, 0, 0);
     for i in 0..size {
-        print!("{}", array1[i]);
+        print!("{} ", array1[i]);
     }
     println!();
     
     let size = array2.len();
-    mergesort::mergesort(&mut array2, 0, size);
+    mergesort::mergesort(&mut array2, 0, size-1);
     for i in 0..size {
-        print!("{}", array2[i]);
+        print!("{} ", array2[i]);
     }
     println!();
     
     let size = array3.len();
-    mergesort::mergesort(&mut array3, 0, size);
+    mergesort::mergesort(&mut array3, 0, size-1);
     for i in 0..size {
-        print!("{}", array3[i]);
+        print!("{} ", array3[i]);
     }
     println!();
     
     let size = array4.len();
-    mergesort::mergesort(&mut array4, 0, size);
+    mergesort::mergesort(&mut array4, 0, size-1);
     for i in 0..size {
-        print!("{}", array4[i]);
+        print!("{} ", array4[i]);
     }
     println!();
     
     let size = array5.len();
-    mergesort::mergesort(&mut array5, 0, size);
+    mergesort::mergesort(&mut array5, 0, size-1);
     for i in 0..size {
-        print!("{}", array5[i]);
+        print!("{} ", array5[i]);
     }
     println!();
     
     let size = array6.len();
-    mergesort::mergesort(&mut array6, 0, size);
+    mergesort::mergesort(&mut array6, 0, size-1);
     for i in 0..size {
-        print!("{}", array6[i]);
+        print!("{} ", array6[i]);
     }
     println!();
 }
