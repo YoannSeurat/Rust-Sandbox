@@ -10,6 +10,7 @@ Right now the projects you can find here are :
 - [Leap Years](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/leap-years)
 - [Manhattan Distance](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/manhattan-distance)
 - [Mastermind](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/mastermind)
+- [Merge Sort](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/merge-sort)
 - [Minesweeper](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/minesweeper)
 - [Number to LCD](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/number-to-lcd)
 - [Yahtzee](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/yahtzee)
