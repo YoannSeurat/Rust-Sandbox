@@ -12,6 +12,7 @@ Right now the projects you can find here are :
 - [Mastermind](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/mastermind)
 - [Minesweeper](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/minesweeper)
 - [Number to LCD](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/number-to-lcd)
+- [Yahtzee](https://github.com/YoannSeurat/Rust-Sandbox/tree/master/yahtzee)
 
 Click on any folder to see the corresponding README
 
