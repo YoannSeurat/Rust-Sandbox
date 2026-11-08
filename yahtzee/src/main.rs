@@ -1,7 +1,18 @@
 /*
+https://codingdojo.org/kata/Yahtzee/
+
 Yahtzee
 
+About this Kata
+This problem is based on Ruby Quiz #19 ( http://rubyquiz.com/quiz19.html ). 
 
+Problem Description
+The game of yahtzee is a simple dice game. 
+Each round, each player rolls five six sided dice. 
+The player may choose to reroll some or all of the dice up to three times (including the original roll). 
+The player then places the roll at a category, such as ones, twos, sixes, full house etc. 
+If the roll is compatible with the score, the player gets a score for this roll according to the rules. 
+If the roll is not compatible, the player gets a score of zero for this roll.
 */
 
 mod dice;
